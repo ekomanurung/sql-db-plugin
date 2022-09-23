@@ -12,7 +12,7 @@ var MysqlDbConnectionString = "%s:%s@tcp(%s:%d)/%s?parseTime=true"
 var PostgresSqlConnectionString = "host=%s user=%s dbname=%s password=%s port=%d sslmode=disable"
 var SqliteConnectionString = "%s.db"
 
-func getDataSourceName(pattern string, props ...any) string {
+func GetDataSourceName(pattern string, props ...any) string {
 	return fmt.Sprintf(pattern, props...)
 }
 

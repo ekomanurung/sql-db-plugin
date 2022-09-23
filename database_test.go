@@ -14,7 +14,7 @@ func TestCreateMysqlConnection(t *testing.T) {
 		props := builder.WithHost("localhost").WithUsername("root").WithPassword("root").WithPort(3306).WithDriver("mysql").Build()
 
 		database := NewDatabase(props, mysql.New(mysql.Config{
-			DSN: getDataSourceName(MysqlDbConnectionString,
+			DSN: GetDataSourceName(MysqlDbConnectionString,
 				props.Username, props.Password)}))
 
 		assert.NotNil(t, database)
@@ -27,7 +27,7 @@ func TestCreateSqliteConnection(t *testing.T) {
 		builder := &DatabasePropertiesBuilder{}
 		props := builder.WithDriver("sqlite").WithDB("test").Build()
 
-		database := NewDatabase(props, sqlite.Open(getDataSourceName(SqliteConnectionString, props.DatabaseName)))
+		database := NewDatabase(props, sqlite.Open(GetDataSourceName(SqliteConnectionString, props.DatabaseName)))
 
 		assert.NotNil(t, database)
 
