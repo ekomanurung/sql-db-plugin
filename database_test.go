@@ -15,7 +15,7 @@ func TestCreateMysqlConnection(t *testing.T) {
 
 		database := NewDatabase(props, mysql.New(mysql.Config{
 			DSN: GetDataSourceName(MysqlDbConnectionString,
-				props.Username, props.Password)}))
+				props.Username, props.Password, props.Host, props.Port, props.DatabaseName)}))
 
 		assert.NotNil(t, database)
 		database.Close()
